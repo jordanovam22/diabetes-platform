@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- SEO tags -->
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <!-- Page settings -->
+    <title>Dialog</title>
+    <link rel="icon" href="img/favicon.png">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<style>
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container">
+
+        <!-- Navbar Brand -->
+        <a class="navbar-brand" href="#"><img src="img/symbol.png" style="height: 30px; width: 30px; margin-bottom: 5px" alt="..."><b>Diabetes</b></a>
+
+        <!-- Mobile Toggler -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar -->
+        <div class="collapse navbar-collapse" id="navbarDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="advices.html">Advices</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="menu.html">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="quiz.html">Quiz</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="help.html">Help</a>
+                </li>
+            </ul>
+            <form class="form-inline my-1 my-lg-0">
+                <button class="btn btn-outline-primary my-1 my-sm-0" type="submit" onclick="window.open('loginForm.html')">Log Out</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="main">
+    <div class="container" style="padding-top: 230px">
+        <h5 style="text-align: center; padding-bottom: 30px"><b><u><i>Make an appointment</i></u></b></h5>
+        <div class="dropdown" style="text-align: center">
+            <label for="start">Select Date:</label>
+
+            <input type="date" id="start" name="trip-start"
+                   value="2018-07-22"
+                   min="2018-01-01" max="2018-12-31">
+        </div>
+        <hr style="width: 200px">
+        <div class="dropdown" style="text-align: center">
+                <label for="city"><h7><b>Select City:</b></h7></label>
+                <select id="city" name="city">
+                    <option value="none">None</option>
+                    <option value="skopje">Skopje</option>
+                    <option value="kocani">Kocani</option>
+                    <option value="bitola">Bitola</option>
+                    <option value="veles">Veles</option>
+                    <option value="ohrid">Ohrid</option>
+                    <option value="vinica">Vinica</option>
+                    <option value="stip">Stip</option>
+                </select>
+        </div>
+        <hr style="width: 200px">
+        <div class="dropdown" style="text-align: center">
+            <label for="doctor"><h7><b>Select Doctor:</b></h7></label>
+            <select id="doctor" name="city">
+                <option value="none">None</option>
+                <option value="oliver">Oliver Iliev</option>
+                <option value="petar">Petar Bogdanov</option>
+                <option value="olivera">Olivera Stankova</option>
+                <option value="veronika">Veronika Stojkova</option>
+                <option value="monika">Monika Paskova</option>
+                <option value="Kristijan">Kristijan Ivanov</option>
+                <option value="Angel">Angel Panov</option>
+            </select>
+        </div>
+
+        <div class="buttons" style="text-align: center; padding-top: 30px">
+            <button class="btn-dark" type="button">Cancel</button>
+<!--            <button class="btn-primary" type="submit" onclick="window.open('home.html')">Submit</button>-->
+            <button id="myBtn">Submit</button>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Successfully done.</p>
+                </div>
+
+            </div>
+        </div>
+
+    <div class="div footer" style="padding-top: 223px">
+        <div class="box" style="width: 100%; height: 40px; background: #0062cc">
+            <p style="color: white; padding-left: 10px; padding-top: 8px">All rights are reserved &copy 2022</p>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>
